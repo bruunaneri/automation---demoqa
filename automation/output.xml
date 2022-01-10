@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.7 on win32)" generated="20220110 18:05:19.029" rpa="false" schemaversion="2">
+<suite id="s1" name="Api" source="C:\Users\bruna\OneDrive\Documentos\automation\test\api.robot">
+<test id="s1-t1" name="CT01 - Login User">
+<kw name="Given that body with a valid user was send on demoqa api" library="resource_api">
+<kw name="Catenate" library="BuiltIn">
+<var>${body}</var>
+<arg>SEPARATOR=</arg>
+<arg>{</arg>
+<arg>"userName": "bruna_neri",</arg>
+<arg>"password": "Bruna123!"</arg>
+<arg>}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220110 18:05:19.060" level="INFO">${body} = {"userName": "bruna_neri","password": "Bruna123!"}</msg>
+<status status="PASS" starttime="20220110 18:05:19.059" endtime="20220110 18:05:19.060"/>
+</kw>
+<status status="PASS" starttime="20220110 18:05:19.058" endtime="20220110 18:05:19.060"/>
+</kw>
+<kw name="When request POST method with data /Account/v1/Authorized demoqa api" library="resource_api" sourcename="When request POST method with data ${scenario_url} demoqa api">
+<kw name="Set To Dictionary">
+<arg>${headers}</arg>
+<arg>Content-Type=application/json</arg>
+<msg timestamp="20220110 18:05:19.062" level="FAIL">No keyword with name 'Set To Dictionary' found.</msg>
+<status status="FAIL" starttime="20220110 18:05:19.062" endtime="20220110 18:05:19.062"/>
+</kw>
+<kw name="Create Session">
+<arg>demoqa_api</arg>
+<arg>${URL}</arg>
+<status status="NOT RUN" starttime="20220110 18:05:19.063" endtime="20220110 18:05:19.063"/>
+</kw>
+<kw name="POST On Session">
+<var>${response}</var>
+<arg>demoqa_api</arg>
+<arg>${scenario_url}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${headers}</arg>
+<status status="NOT RUN" starttime="20220110 18:05:19.064" endtime="20220110 18:05:19.064"/>
+</kw>
+<kw name=" Set Test Variable" library="resource_api">
+<arg>${response}</arg>
+<status status="NOT RUN" starttime="20220110 18:05:19.064" endtime="20220110 18:05:19.064"/>
+</kw>
+<status status="FAIL" starttime="20220110 18:05:19.060" endtime="20220110 18:05:19.065"/>
+</kw>
+<kw name="Then status code should be 200" library="resource_api" sourcename="Then status code should be ${scenario_statusCode}">
+<status status="NOT RUN" starttime="20220110 18:05:19.065" endtime="20220110 18:05:19.066"/>
+</kw>
+<status status="FAIL" starttime="20220110 18:05:19.058" endtime="20220110 18:05:19.066">No keyword with name 'Set To Dictionary' found.</status>
+</test>
+<status status="FAIL" starttime="20220110 18:05:19.031" endtime="20220110 18:05:19.068"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Api">Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
